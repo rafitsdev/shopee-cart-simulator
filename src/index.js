@@ -7,18 +7,20 @@ const myWishlist = [];
 console.log(`Welcome to your Shopee cart!`);
 
 // Created 2 items
-const item1 = await createItem('hotwheels ferrari', 20.99, 1);
-const item2 = await createItem('hotwheels lamborghini', 39.99, 3);
+const item1 = createItem('hotwheels ferrari', 20.99, 1);
+const item2 = createItem('hotwheels lamborghini', 39.99, 3);
 
 // Added 2 items to cart
-await cartService.addItem(myCart, item1);
-await cartService.addItem(myCart, item2);
+cartService.addItem(myCart, item1);
+cartService.addItem(myCart, item2);
 
-await cartService.removeItem(myCart, item2);
+cartService.removeItem(myCart, item2);
+console.log(myCart.map(item => item.subtotal()));
+
 
 // Deleted 2 items from cart
-// await cartService.deleteItem(myCart, item1.name);
-// await cartService.deleteItem(myCart, item2.name);
+// cartService.deleteItem(myCart, item1.name);
+// cartService.deleteItem(myCart, item2.name);
 
-await cartService.displayCart(myCart);
-await cartService.calculateTotal(myCart);
+cartService.displayCart(myCart);
+cartService.calculateTotal(myCart);

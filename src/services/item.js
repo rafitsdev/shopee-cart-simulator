@@ -1,12 +1,14 @@
 // Items use case
 
 // -> create item subtotal correctly
-async function createItem(name, price, quantity) {
+function createItem(name, price, quantity) {
   return {
     name,
-    price, 
+    price,
     quantity,
-    subtotal: () => price * quantity
+    subtotal() {
+      return this.price * this.quantity
+    }
   };
 }
 

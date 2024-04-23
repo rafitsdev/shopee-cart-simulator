@@ -2,18 +2,18 @@
 
 // Use cases
 // ✅ -> add an item to cart
-async function addItem(userCart, item) {
+function addItem(userCart, item) {
   userCart.push(item);
 }
 
 // ✅ -> calculate the cart total
-async function calculateTotal(userCart) {
+function calculateTotal(userCart) {
   const result = userCart.reduce((total, item) => total + item.subtotal(), 0);
   console.log(`\n 🛒 TOTAL: ${result}`);
 }
 
 //  -> remove item from cart
-async function removeItem(userCart, item) {
+function removeItem(userCart, item) {
 
   // 1. Found the item index
   const indexFound = userCart.findIndex((product) => product.name === item.name);
@@ -38,7 +38,7 @@ async function removeItem(userCart, item) {
 }
 
 // ✅ -> delete items from cart
-async function deleteItem(userCart, name) {
+function deleteItem(userCart, name) {
   const index = userCart.findIndex((item) => item.name === name);
 
   if (index !== -1) {
@@ -46,7 +46,7 @@ async function deleteItem(userCart, name) {
   }
 }
 
-async function displayCart(userCart) {
+function displayCart(userCart) {
   console.log('\nShopee Cart list:')
   userCart.forEach((item, index) => {
     console.log(`${index + 1}. ${item.name} - R$ ${item.price} | ${item.quantity}x | Subtotal = ${item.subtotal()}`);
